@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    touch-action: none;
+}
+
+body {
+    background: linear-gradient(135deg, #1a3263 0%, #3a8dde 100%);
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.ui-header {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.ui-header h1 {
+    color: #fff;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#score-display {
+    color: #fab95b;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    background: rgba(26, 50, 99, 0.7);
+    padding: 0.3rem 1.2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#level-display,
+#mission-display {
+    color: #fab95b;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    background: rgba(26, 50, 99, 0.7);
+    padding: 0.2rem 1.2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ui-buttons {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+#pause-btn {
+    background: #fab95b;
+    color: #1a3263;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.7rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: background 0.2s, color 0.2s;
+}
+
+#pause-btn:hover {
+    background: #ffcb7d;
+    color: #0d1a33;
+}
+
+#start-btn {
+    background: #fab95b;
+    color: #1a3263;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.7rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: background 0.2s, color 0.2s;
+    margin-bottom: 1rem;
+}
+
+#start-btn:hover {
+    background: #ffcb7d;
+    color: #0d1a33;
+}
+
+#game-board {
+    background: #1a3263;
+    width: 90vmin;
+    height: 90vmin;
+    max-width: 95vw;
+    max-height: 70vw;
+    min-width: 320px;
+    min-height: 320px;
+    display: grid;
+    grid-template-columns: repeat(21, 1fr);
+    grid-template-rows: repeat(21, 1fr);
+    border-radius: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.snake {
+    background: linear-gradient(135deg, #e8e2db 60%, #fab95b 100%);
+    border: 0.25vmin solid #222;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s;
+}
+
+.food {
+    background: linear-gradient(135deg, #fab95b 60%, #e8e2db 100%);
+    border: 0.25vmin solid #222;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.mobile-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.mobile-controls>button,
+.mobile-controls .arrow-btn {
+    background: #fff;
+    color: #1a3263;
+    border: none;
+    border-radius: 50%;
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 2rem;
+    margin: 0.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    outline: none;
+    user-select: none;
+}
+
+.mobile-controls .arrow-btn:active {
+    background: #fab95b;
+    color: #fff;
+}
+
+.mobile-controls>div {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.game-canvas {
+    background: #1a3263;
+    width: 90vmin;
+    height: 90vmin;
+    max-width: 95vw;
+    max-height: 70vw;
+    min-width: 320px;
+    min-height: 320px;
+    border-radius: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    margin-bottom: 1.5rem;
+    display: block;
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .ui-header h1 {
+        font-size: 1.3rem;
+    }
+
+    #score-display {
+        font-size: 1rem;
+        padding: 0.2rem 0.7rem;
+    }
+
+    #start-btn {
+        font-size: 0.95rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    #game-board {
+        min-width: 220px;
+        min-height: 220px;
+        max-width: 98vw;
+        max-height: 98vw;
+        border-radius: 1rem;
+    }
+
+    .mobile-controls>button,
+    .mobile-controls .arrow-btn {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.3rem;
+    }
+
+    .game-canvas {
+        min-width: 220px;
+        min-height: 220px;
+        max-width: 98vw;
+        max-height: 98vw;
+        border-radius: 1rem;
+    }
+
+    #level-display,
+    #mission-display {
+        font-size: 0.9rem;
+        padding: 0.1rem 0.7rem;
+    }
+
+    #pause-btn {
+        font-size: 0.95rem;
+        padding: 0.5rem 1.2rem;
+    }
+}

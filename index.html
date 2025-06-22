@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- SweetAlert2 for modern modals -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+
+<body>
+    <div class="ui-header">
+        <h1>Snake Game</h1>
+        <div id="score-display">Score: 0</div>
+        <div id="level-display">Level: 1</div>
+        <div id="mission-display">Mission: Eat 5 apples!</div>
+        <div class="ui-buttons">
+            <button id="start-btn">Start Game</button>
+            <button id="pause-btn">Pause</button>
+        </div>
+    </div>
+    <canvas id="game-canvas" class="game-canvas"></canvas>
+    <audio id="eat-sound" src="sounds/eat.mp3" preload="auto"></audio>
+    <audio id="levelup-sound" src="sounds/levelup.mp3" preload="auto"></audio>
+    <audio id="gameover-sound" src="sounds/gameover.mp3" preload="auto"></audio>
+    <div class="mobile-controls">
+        <button class="arrow-btn" id="up-btn">▲</button>
+        <div>
+            <button class="arrow-btn" id="left-btn">◀</button>
+            <button class="arrow-btn" id="down-btn">▼</button>
+            <button class="arrow-btn" id="right-btn">▶</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>
